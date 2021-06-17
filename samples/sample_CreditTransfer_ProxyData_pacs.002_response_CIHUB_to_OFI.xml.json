@@ -1,0 +1,85 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301FASTIDJA110HRB12345678",
+      "MsgDefIdr" : "pacs.002.001.10",
+      "BizSvc" : "CTRESPONSE",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "FitoFIPmtStsRpt" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301FASTIDJA11012345678",
+          "CreDtTm" : "2021-03-01T19:00:00"
+        },
+        "OrgnlGrpInfAndSts" : [ {
+          "OrgnlMsgId" : "20210301INDOIDJA11012345678",
+          "OrgnlMsgNmId" : "pacs.008.001.08"
+        } ],
+        "TxInfAndSts" : [ {
+          "OrgnlEndToEndId" : "20210301INDOIDJA110ORB12345678",
+          "OrgnlTxId" : "20210301INDOIDJA11012345678",
+          "TxSts" : "ACTC",
+          "StsRsnInf" : [ {
+            "Rsn" : {
+              "Prtry" : "U000"
+            },
+            "AddtlInf" : [ "O 1234" ]
+          } ],
+          "OrgnlTxRef" : {
+            "IntrBkSttlmDt" : "2021-03-01T00:00:00",
+            "Cdtr" : {
+              "Pty" : {
+                "Nm" : "JOHN SMITH"
+              }
+            },
+            "CdtrAcct" : {
+              "Id" : {
+                "Othr" : {
+                  "Id" : "987654321"
+                }
+              },
+              "Tp" : {
+                "Prtry" : "SVGS"
+              },
+              "Prxy" : {
+                "Tp" : {
+                  "Prtry" : "02"
+                },
+                "Id" : "john.smith@example.com"
+              }
+            }
+          },
+          "SplmtryData" : [ {
+            "Envlp" : {
+              "Cdtr" : {
+                "Tp" : "01",
+                "Id" : "0102030405060708",
+                "RsdntSts" : "01",
+                "TwnNm" : "0300"
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  }
+}

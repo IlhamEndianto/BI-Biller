@@ -1,0 +1,47 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301FASTIDJATTTORB12345678",
+      "MsgDefIdr" : "admn.002.001.01",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "AdmnResp" : {
+        "GrpHdr" : {
+          "MsgId" : "20200915RPPEMYKL00099999999",
+          "CreDtTm" : "2020-09-15T00:07:46"
+        },
+        "AdmnResponse" : {
+          "InstgAgt" : {
+            "FinInstnId" : {
+              "Othr" : {
+                "Id" : "NWMGSGSG"
+              }
+            }
+          },
+          "OrgnlInstrId" : "20200915RPPEMYKL00099999999",
+          "FnctnCd" : "1003",
+          "TxSts" : "ACTC"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301INDOIDJA000ORB12345678",
+      "MsgDefIdr" : "pacs.028.001.04",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "FitoFIPmtStsReq" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301INDOIDJA00012345678",
+          "CreDtTm" : "2021-03-01T19:00:00"
+        },
+        "TxInf" : [ {
+          "OrgnlEndToEndId" : "20210301INDOIDJA019ORB12345678"
+        } ]
+      }
+    }
+  }
+}

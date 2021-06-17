@@ -1,0 +1,54 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301INDOIDJA610ORB12345678",
+      "MsgDefIdr" : "prxy.003.001.01",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "PrxyLookUp" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301FASTIDJA610HRB12345678",
+          "CreDtTm" : "2021-03-01T19:00:00",
+          "MsgSndr" : {
+            "Agt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "INDOIDJA"
+                }
+              }
+            }
+          }
+        },
+        "LookUp" : {
+          "PrxyOnly" : {
+            "LkUpTp" : "PXRS",
+            "Id" : "20210301INDOIDJA71012345678",
+            "PrxyRtrvl" : {
+              "Tp" : "02",
+              "Val" : "james.brown@example.com"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301INDOIDJA610ORB12345678",
+      "MsgDefIdr" : "prxy.004.001.01",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "PrxyLookUpRspn" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301INDOIDJA61012345678",
+          "CreDtTm" : "2021-03-01T19:00:00",
+          "MsgRcpt" : {
+            "Agt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "BANK01JK"
+                }
+              }
+            }
+          }
+        },
+        "OrgnlGrpInf" : {
+          "OrgnlMsgId" : "20210301INDOIDJA61012345678",
+          "OrgnlMsgNmId" : "prxy.003.001.01",
+          "OrgnlCreDtTm" : "2021-03-01T19:00:00"
+        },
+        "LkUpRspn" : {
+          "OrgnlId" : "20210326INDOIDJAO12345678",
+          "OrgnlPrxyRtrvl" : {
+            "Tp" : "01",
+            "Val" : "0211234567"
+          },
+          "RegnRspn" : {
+            "PrxRspnSts" : "ACTC",
+            "StsRsnInf" : {
+              "Prtry" : "U000"
+            },
+            "Prxy" : {
+              "Tp" : "01",
+              "Val" : "0211234567"
+            },
+            "Regn" : {
+              "RegnId" : "0102030405060708",
+              "DsplNm" : "JOHN SMITH",
+              "Agt" : {
+                "FinInstnId" : {
+                  "Othr" : {
+                    "Id" : "CENAIDJA"
+                  }
+                }
+              },
+              "Acct" : {
+                "Id" : {
+                  "Othr" : {
+                    "Id" : "03005000069295"
+                  }
+                },
+                "Tp" : {
+                  "Prtry" : "CACC"
+                },
+                "Nm" : "JOHN SMITH"
+              }
+            }
+          }
+        },
+        "SplmtryData" : [ {
+          "Envlp" : {
+            "Cstmr" : {
+              "Tp" : "01",
+              "Id" : "0102030405060708",
+              "RsdntSts" : "01",
+              "TwnNm" : "0300"
+            }
+          }
+        } ]
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301INDOIDJA710ORB12345678",
+      "MsgDefIdr" : "prxy.001.001.01",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "PrxyRegn" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301FASTIDJA710HRB12345678",
+          "CreDtTm" : "2021-03-01T19:00:00",
+          "MsgSndr" : {
+            "Agt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "INDOIDJA"
+                }
+              }
+            }
+          }
+        },
+        "Regn" : {
+          "RegnTp" : "NEWR",
+          "Prxy" : {
+            "Tp" : "02",
+            "Val" : "james.brown@example.com"
+          },
+          "PrxyRegn" : {
+            "DsplNm" : "Mr. James Brown",
+            "Agt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "INDOIDJA"
+                }
+              }
+            },
+            "Acct" : {
+              "Id" : {
+                "Othr" : {
+                  "Id" : "2040606090112"
+                }
+              },
+              "Tp" : {
+                "Prtry" : "CACC"
+              },
+              "Nm" : "James Brown"
+            },
+            "ScndId" : {
+              "Tp" : "01",
+              "Val" : "1020304050607080"
+            },
+            "RegnSts" : "ACTV"
+          }
+        },
+        "SplmtryData" : [ {
+          "Envlp" : {
+            "Cstmr" : {
+              "Tp" : "01",
+              "Id" : "1020304050607080",
+              "RsdntSts" : "01",
+              "TwnNm" : "0300"
+            }
+          }
+        } ]
+      }
+    }
+  }
+}

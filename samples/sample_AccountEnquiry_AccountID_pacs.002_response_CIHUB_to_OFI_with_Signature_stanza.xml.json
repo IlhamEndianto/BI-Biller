@@ -1,0 +1,75 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301FASTIDJA010HRB12345678",
+      "MsgDefIdr" : "pacs.002.001.10",
+      "CreDt" : "2021-03-01T20:00:00",
+      "Sgntr" : {
+        "Any" : "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\" xmlns:ns=\"urn:iso\" xmlns:ns1=\"urn:iso:std:iso:20022:tech:xsd:head.001.001.01\" xmlns:ns2=\"urn:iso:std:iso:20022:tech:xsd:pacs.002.001.10\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\"/><SignatureMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><Reference URI=\"\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/>\n      </Transforms><DigestMethod Algorithm=\"http://www.w3.org/2001/04/xmlenc#sha256\"/><DigestValue>uooqbWYa5VCqcJCbuymBKqm17vYuooqbWYa5VCqcJCbuymBKqm17vY=</DigestValue> \n     </Reference>\n    </SignedInfo><SignatureValue>KedJuTob5gtvYx9qM3k3gm7kbLBwVbEQRl26S2tmXjqNND7MRGtoew==</SignatureValue><KeyInfo><KeyValue><X509Data><X509SubjectName>CN=rsa0,OU=rtp,O=&lt;sender&gt;,L=location,ST=Unknown,C=</X509SubjectName><X509IssuerSerial><X509IssuerName>CN=sign0,OU=rtp,O=&lt;sender&gt;,L=location,ST=Unknown,C=</X509IssuerName><X509SerialNumber>1328092436</X509SerialNumber>\n       </X509IssuerSerial>\n      </X509Data>\n     </KeyValue>\n    </KeyInfo>\n   </Signature>"
+      }
+    },
+    "Document" : {
+      "FitoFIPmtStsRpt" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301FASTIDJA01012345678",
+          "CreDtTm" : "2021-03-01T19:00:00"
+        },
+        "TxInfAndSts" : [ {
+          "OrgnlEndToEndId" : "20210301INDOIDJA510ORB12345678",
+          "OrgnlTxId" : "20210301INDOIDJA51012345678",
+          "TxSts" : "ACTC",
+          "StsRsnInf" : [ {
+            "Rsn" : {
+              "Prtry" : "U000"
+            }
+          } ],
+          "OrgnlTxRef" : {
+            "Cdtr" : {
+              "Pty" : {
+                "Nm" : "JOHN SMITH"
+              }
+            },
+            "CdtrAcct" : {
+              "Id" : {
+                "Othr" : {
+                  "Id" : "987654321"
+                }
+              },
+              "Tp" : {
+                "Prtry" : "CACC"
+              }
+            }
+          },
+          "SplmtryData" : [ {
+            "Envlp" : {
+              "Cdtr" : {
+                "Tp" : "01",
+                "Id" : "0102030405060708",
+                "RsdntSts" : "01",
+                "TwnNm" : "0300"
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  }
+}

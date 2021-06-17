@@ -1,0 +1,129 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301FASTIDJA010HRB12345678",
+      "MsgDefIdr" : "pacs.002.001.10",
+      "BizSvc" : "SETTLEMENTCONFIRMATION",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "FitoFIPmtStsRpt" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301FASTIDJA01012345678",
+          "CreDtTm" : "2021-03-01T19:00:00"
+        },
+        "OrgnlGrpInfAndSts" : [ {
+          "OrgnlMsgId" : "20210301INDOIDJA01012345678",
+          "OrgnlMsgNmId" : "pacs.008.001.08",
+          "OrgnlCreDtTm" : "2021-03-01T19:00:00"
+        } ],
+        "TxInfAndSts" : [ {
+          "OrgnlEndToEndId" : "20210301INDOIDJA010ORB12345678",
+          "OrgnlTxId" : "20210301INDOIDJA01012345678",
+          "TxSts" : "ACTC",
+          "StsRsnInf" : [ {
+            "Rsn" : {
+              "Prtry" : "U000"
+            },
+            "AddtlInf" : [ "O 1234" ]
+          } ],
+          "OrgnlTxRef" : {
+            "IntrBkSttlmDt" : "2021-03-01T00:00:00",
+            "Dbtr" : {
+              "Pty" : {
+                "Nm" : "JAMES BROWN"
+              }
+            },
+            "DbtrAcct" : {
+              "Id" : {
+                "Othr" : {
+                  "Id" : "123456789"
+                }
+              },
+              "Tp" : {
+                "Prtry" : "CACC"
+              }
+            },
+            "DbtrAgt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "INDOIDJA"
+                }
+              }
+            },
+            "CdtrAgt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "CENAIDJA"
+                }
+              }
+            },
+            "Cdtr" : {
+              "Pty" : {
+                "Nm" : "JOHN SMITH"
+              }
+            },
+            "CdtrAcct" : {
+              "Id" : {
+                "Othr" : {
+                  "Id" : "987654321"
+                }
+              },
+              "Tp" : {
+                "Prtry" : "SVGS"
+              }
+            }
+          },
+          "SplmtryData" : [ {
+            "Envlp" : {
+              "Dbtr" : {
+                "Tp" : "01",
+                "Id" : "0102030405060708",
+                "RsdntSts" : "01",
+                "TwnNm" : "0300"
+              },
+              "Cdtr" : {
+                "Tp" : "01",
+                "Id" : "0807060504030201",
+                "RsdntSts" : "01",
+                "TwnNm" : "0300"
+              },
+              "DbtrAgtAcct" : {
+                "Id" : {
+                  "Othr" : {
+                    "Id" : "654321098"
+                  }
+                }
+              },
+              "CdtrAgtAcct" : {
+                "Id" : {
+                  "Othr" : {
+                    "Id" : "890123456"
+                  }
+                }
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301INDOIDJATTTHRB12345678",
+      "MsgDefIdr" : "prxy.006.001.01",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "PrxyNqryRspn" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301FASTIDJA710HRB12345679",
+          "CreDtTm" : "2021-09-28T03:00:00",
+          "MsgRcpt" : {
+            "Agt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "BANK001"
+                }
+              }
+            }
+          }
+        },
+        "OrgnlGrpInf" : {
+          "OrgnlMsgId" : "20210301INDOIDJA710HRB12345678",
+          "OrgnlMsgNmId" : "prxy.005.001.01",
+          "OrgnlCreDtTm" : "2021-09-27T18:59:58"
+        },
+        "NqryRspn" : {
+          "PrxRspnSts" : "ACTC",
+          "StsRsnInf" : {
+            "Prtry" : "U000"
+          },
+          "Rspn" : [ {
+            "RegnId" : "6789012345",
+            "DsplNm" : "Mr. James Brown",
+            "Ptcpt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "INDOIDJA"
+                }
+              }
+            },
+            "PrxyInf" : {
+              "Tp" : "02",
+              "Val" : "james.brown@example.com",
+              "Sts" : "ACTV"
+            },
+            "AcctInf" : {
+              "Agt" : {
+                "FinInstnId" : {
+                  "Othr" : {
+                    "Id" : "INDOIDJA"
+                  }
+                }
+              },
+              "Acct" : {
+                "Id" : {
+                  "Othr" : {
+                    "Id" : "2040606090112"
+                  }
+                },
+                "Tp" : {
+                  "Prtry" : "CACC"
+                },
+                "Nm" : "James Brown"
+              }
+            },
+            "SplmtryData" : {
+              "Envlp" : {
+                "Cstmr" : {
+                  "Tp" : "01",
+                  "Id" : "1020304050607080",
+                  "RsdntSts" : "01",
+                  "TwnNm" : "0300"
+                }
+              }
+            }
+          }, {
+            "RegnId" : "6789012346",
+            "DsplNm" : "Mr. James Brown",
+            "Ptcpt" : {
+              "FinInstnId" : {
+                "Othr" : {
+                  "Id" : "CENAIDJA"
+                }
+              }
+            },
+            "PrxyInf" : {
+              "Tp" : "01",
+              "Val" : "02192189944",
+              "Sts" : "ACTV"
+            },
+            "AcctInf" : {
+              "Agt" : {
+                "FinInstnId" : {
+                  "Othr" : {
+                    "Id" : "CENAIDJA"
+                  }
+                }
+              },
+              "Acct" : {
+                "Id" : {
+                  "Othr" : {
+                    "Id" : "6120920400160"
+                  }
+                },
+                "Tp" : {
+                  "Prtry" : "SVGS"
+                },
+                "Nm" : "James Brown"
+              }
+            },
+            "SplmtryData" : {
+              "Envlp" : {
+                "Cstmr" : {
+                  "Tp" : "01",
+                  "Id" : "1020304050607080",
+                  "RsdntSts" : "01",
+                  "TwnNm" : "0300"
+                }
+              }
+            }
+          } ]
+        }
+      }
+    }
+  }
+}

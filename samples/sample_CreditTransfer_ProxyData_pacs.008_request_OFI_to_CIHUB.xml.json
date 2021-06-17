@@ -1,0 +1,136 @@
+{
+  "BusMsg" : {
+    "AppHdr" : {
+      "Fr" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "INDOIDJA"
+            }
+          }
+        }
+      },
+      "To" : {
+        "Fiid" : {
+          "FinInstnId" : {
+            "Othr" : {
+              "Id" : "FASTIDJA"
+            }
+          }
+        }
+      },
+      "BizMsgIdr" : "20210301INDOIDJA110ORB12345678",
+      "MsgDefIdr" : "pacs.008.001.08",
+      "CreDt" : "2021-03-01T20:00:00"
+    },
+    "Document" : {
+      "FitoFICstmrCdtTrf" : {
+        "GrpHdr" : {
+          "MsgId" : "20210301INDOIDJA11012345678",
+          "CreDtTm" : "2021-03-01T19:00:00",
+          "NbOfTxs" : "1",
+          "SttlmInf" : {
+            "SttlmMtd" : "CLRG"
+          }
+        },
+        "CdtTrfTxInf" : [ {
+          "PmtId" : {
+            "EndToEndId" : "20210301INDOIDJA110ORB12345678",
+            "TxId" : "20210301INDOIDJA11012345678"
+          },
+          "PmtTpInf" : {
+            "LclInstrm" : {
+              "Prtry" : "01"
+            },
+            "CtgyPurp" : {
+              "Prtry" : "02"
+            }
+          },
+          "IntrBkSttlmAmt" : {
+            "Value" : "1234.56",
+            "Ccy" : "IDR"
+          },
+          "IntrBkSttlmDt" : "2021-03-19T00:00:00",
+          "ChrgBr" : "DEBT",
+          "Dbtr" : {
+            "Nm" : "JAMES BROWN",
+            "Id" : {
+              "PrvtId" : {
+                "Othr" : [ {
+                  "Id" : "0102030405060708"
+                } ]
+              }
+            }
+          },
+          "DbtrAcct" : {
+            "Id" : {
+              "Othr" : {
+                "Id" : "123456789"
+              }
+            },
+            "Tp" : {
+              "Prtry" : "CACC"
+            }
+          },
+          "DbtrAgt" : {
+            "FinInstnId" : {
+              "Othr" : {
+                "Id" : "INDOIDJA"
+              }
+            }
+          },
+          "CdtrAgt" : {
+            "FinInstnId" : {
+              "Othr" : {
+                "Id" : "CENAIDJA"
+              }
+            }
+          },
+          "Cdtr" : {
+            "Nm" : "JOHN SMITH",
+            "Id" : {
+              "PrvtId" : {
+                "Othr" : [ {
+                  "Id" : "0102030405060708"
+                } ]
+              }
+            }
+          },
+          "CdtrAcct" : {
+            "Id" : {
+              "Othr" : {
+                "Id" : "987654321"
+              }
+            },
+            "Tp" : {
+              "Prtry" : "SVGS"
+            },
+            "Prxy" : {
+              "Tp" : {
+                "Prtry" : "02"
+              },
+              "Id" : "john.smith@example.com"
+            }
+          },
+          "RmtInf" : {
+            "Ustrd" : [ "Payment Description or notes, up to 140 characters in the line" ]
+          },
+          "SplmtryData" : [ {
+            "Envlp" : {
+              "Dbtr" : {
+                "Tp" : "01",
+                "RsdntSts" : "01",
+                "TwnNm" : "0300"
+              },
+              "Cdtr" : {
+                "Tp" : "01",
+                "RsdntSts" : "01",
+                "TwnNm" : "0300"
+              }
+            }
+          } ]
+        } ]
+      }
+    }
+  }
+}
