@@ -1,4 +1,4 @@
-/.idea
-go.mod
-go.sum
+.idea
 log.txt
+go.sum
+go.mod
