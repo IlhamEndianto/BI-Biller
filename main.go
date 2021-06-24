@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/j03hanafi/bankiso/iso20022/head"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -46,21 +47,39 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	log.Println("New Request from BIFast Connector")
 
 	body, _ := ioutil.ReadAll(r.Body)
-	var request interface{}
+	log.Println(string(body))
 
+	request := BusMsg{}
 	err := json.Unmarshal(body, &request)
 	if err != nil {
 		log.Printf("Error unmarshal JSON: %s", err.Error())
 		return
 	}
+	log.Println(request)
 
 	var response interface{}
 
-	fmt.Println("Enter file name: ")
+	var msgID string
 	var fileName string
-	fmt.Scanln(&fileName)
 
+	msgID = fmt.Sprintf("%v", request.AppHdr.MessageDefinitionIdentifier)
+	log.Println("MsgDefIdn:", msgID)
+
+	switch msgID {
+	case "pacs.008.001.08":
+		fileName = "sample_CreditTransfer_AccountID_pacs.002_response_CIHUB_to_OFI.xml.json"
+	case "pacs.009.001.09":
+		fileName = "sample_FItoFICreditTransfer_pacs.002_response_CIHUB_to_OFI.xml.json"
+	default:
+		fileName = "sample_AccountEnquiry_AccountID_pacs.002_response_CIHUB_to_OFI.xml.json"
+	}
+
+	//fmt.Println("Enter file name: ")
+
+	//fmt.Scanln(&fileName)
+	//
 	fileName = "samples/" + fileName
+	log.Println("filename:", fileName)
 
 	file, _ := os.Open(fileName)
 	defer file.Close()
@@ -70,6 +89,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	json.Unmarshal(b, &response)
+	log.Println("response:", response)
 
 	responseFormatter(w, response, 200)
 }
@@ -78,4 +98,14 @@ func responseFormatter(w http.ResponseWriter, data interface{}, statusCode int) 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
 	json.NewEncoder(w).Encode(data)
+}
+
+// type tempDocumentXML interface{}
+type ChannelInput struct {
+	BusMsg BusMsg `xml:"BusMsg" json:"BusMsg"`
+}
+
+type BusMsg struct {
+	AppHdr   *head.BusinessApplicationHeaderV01 `xml:"AppHdr" json:"AppHdr"`
+	Document json.RawMessage                    `xml:"Document" json:"Document"`
 }
