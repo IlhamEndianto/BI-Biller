@@ -3,12 +3,13 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/mux"
-	"github.com/j03hanafi/bankiso/iso20022/head"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/gorilla/mux"
+	"github.com/j03hanafi/bankiso/iso20022/head"
 )
 
 func main() {
