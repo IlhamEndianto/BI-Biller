@@ -50,20 +50,18 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	body, _ := ioutil.ReadAll(r.Body)
 	log.Println(string(body))
 
-	request := BusMsg{}
+	request := ChannelInput{}
 	err := json.Unmarshal(body, &request)
 	if err != nil {
 		log.Printf("Error unmarshal JSON: %s", err.Error())
-		return
 	}
-	log.Println(request)
-
+	log.Println("request: ", request)
 	var response interface{}
 
 	var msgID string
 	var fileName string
 
-	msgID = fmt.Sprintf("%v", request.AppHdr.MessageDefinitionIdentifier)
+	msgID = fmt.Sprintf("%v", request.BusMsg.AppHdr.MessageDefinitionIdentifier)
 	log.Println("MsgDefIdn:", msgID)
 
 	switch msgID {
