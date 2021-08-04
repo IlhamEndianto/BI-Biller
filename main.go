@@ -69,6 +69,12 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		fileName = "sample_CreditTransfer_AccountID_pacs.002_response_CIHUB_to_OFI.xml.json"
 	case "pacs.009.001.09":
 		fileName = "sample_FItoFICreditTransfer_pacs.002_response_CIHUB_to_OFI.xml.json"
+	case "prxy.001.001.01":
+		fileName = "sample_prxy.002_response_alias_mgmt_NEWR_CIHUB_to_OFI.xml.json"
+	case "prxy.003.001.01":
+		fileName = "sample_prxy.004_response_alias_resolution_CIHUB_to_OFI.xml.json"
+	case "prxy.005.001.01":
+		fileName = "sample_prxy.006_response_alias_enquiry_CIHUB_to_OFI.xml.json"
 	default:
 		fileName = "sample_AccountEnquiry_AccountID_pacs.002_response_CIHUB_to_OFI.xml.json"
 	}
