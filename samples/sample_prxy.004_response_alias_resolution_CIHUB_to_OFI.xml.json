@@ -1,107 +1,107 @@
 {
-  "BusMsg" : {
-    "AppHdr" : {
-      "Fr" : {
-        "Fiid" : {
-          "FinInstnId" : {
-            "Othr" : {
-              "Id" : "FASTIDJA"
-            }
-          }
-        }
-      },
-      "To" : {
-        "Fiid" : {
-          "FinInstnId" : {
-            "Othr" : {
-              "Id" : "INDOIDJA"
-            }
-          }
-        }
-      },
-      "BizMsgIdr" : "20210301INDOIDJATTTHRB12345678",
-      "MsgDefIdr" : "prxy.004.001.01",
-      "CreDt" : "2021-03-01T20:00:00"
-    },
-    "Document" : {
-      "PrxyLookUpRspn" : {
-        "GrpHdr" : {
-          "MsgId" : "20210301FASTIDJA710HRB12345679",
-          "CreDtTm" : "2021-09-27T21:00:00",
-          "MsgRcpt" : {
-            "Agt" : {
-              "FinInstnId" : {
-                "Nm" : "Popular Bank",
-                "Othr" : {
-                  "Id" : "BANK001"
-                }
-              }
-            }
-          }
-        },
-        "OrgnlGrpInf" : {
-          "OrgnlMsgId" : "20210301INDOIDJA610HRB12345678",
-          "OrgnlMsgNmId" : "prxy.003.001.01",
-          "OrgnlCreDtTm" : "2021-09-27T18:59:58"
-        },
-        "LkUpRspn" : {
-          "OrgnlId" : "20210301INDOIDJA61012345678",
-          "OrgnlPrxyRtrvl" : {
-            "Tp" : "MSDISDN",
-            "Val" : "09248753982"
-          },
-          "OrgnlPrxyRqstr" : {
-            "Tp" : "02",
-            "Val" : "james.brown@example.com"
-          },
-          "OrgnlDsplNm" : "Mr. James Brown",
-          "OrgnlAcctTp" : {
-            "Prtry" : "CACC"
-          },
-          "RegnRspn" : {
-            "PrxRspnSts" : "ACTC",
-            "StsRsnInf" : {
-              "Prtry" : "U000"
-            },
-            "Prxy" : {
-              "Tp" : "02",
-              "Val" : "james.brown@example.com"
-            },
-            "Regn" : {
-              "RegnId" : "6789012345",
-              "DsplNm" : "Mr. James Brown",
-              "Agt" : {
-                "FinInstnId" : {
-                  "Othr" : {
-                    "Id" : "INDOIDJA"
+  "BusMsg": {
+      "AppHdr": {
+          "Fr": {
+              "FIId": {
+                  "FinInstnId": {
+                      "Othr": {
+                          "Id": "FASTIDJA"
+                      }
                   }
-                }
+              }
+          },
+          "To": {
+              "FIId": {
+                  "FinInstnId": {
+                      "Othr": {
+                          "Id": "INDOIDJA"
+                      }
+                  }
+              }
+          },
+          "BizMsgIdr": "20210301INDOIDJA610ORB12345678",
+          "MsgDefIdr": "prxy.004.001.01",
+          "CreDt": "2021-03-01T20:00:00"
+      },
+      "Document": {
+          "PrxyLookUpRspn": {
+              "GrpHdr": {
+                  "MsgId": "20210301INDOIDJA61012345678",
+                  "CreDtTm": "2021-03-01T19:00:00",
+                  "MsgRcpt": {
+                      "Agt": {
+                          "FinInstnId": {
+                              "Othr": {
+                                  "Id": "INDOIDJA"
+                              }
+                          }
+                      }
+                  }
               },
-              "Acct" : {
-                "Id" : {
-                  "Othr" : {
-                    "Id" : "2040606090112"
+              "OrgnlGrpInf": {
+                  "OrgnlMsgId": "20210301INDOIDJA61012345678",
+                  "OrgnlMsgNmId": "prxy.003.001.01",
+                  "OrgnlCreDtTm": "2021-03-01T19:00:00"
+              },
+              "LkUpRspn": {
+                  "OrgnlId": "20210326INDOIDJAO12345678",
+                  "OrgnlPrxyRtrvl": {
+                      "Tp": "01",
+                      "Val": "0211234567"
+                  },
+                  "RegnRspn": {
+                      "PrxRspnSts": "ACTC",
+                      "StsRsnInf": {
+                          "Prtry": "U000"
+                      },
+                      "Prxy": {
+                          "Tp": "01",
+                          "Val": "0211234567"
+                      },
+                      "Regn": {
+                          "RegnId": "0102030405060708",
+                          "DsplNm": "JOHN SMITH",
+                          "Agt": {
+                              "FinInstnId": {
+                                  "Othr": {
+                                      "Id": "CENAIDJA
+"
+                                  }
+                              }
+                          },
+                          "Acct": {
+                              "Id": {
+                                  "Othr": {
+                                      "Id": "03005000069295
+"
+                                  }
+                              },
+                              "Tp": {
+                                  "Prtry": "CACC
+"
+                              },
+                              "Nm": "JOHN SMITH
+"
+                          }
+                      }
                   }
-                },
-                "Tp" : {
-                  "Prtry" : "CACC"
-                },
-                "Nm" : "James Brown"
-              }
-            }
+              },
+              "SplmtryData": [
+                  {
+                      "Envlp": {
+                          "Dtl": {
+                              "Cstmr": {
+                                  "Tp": "01",
+                                  "Id": "0102030405060708",
+                                  "RsdntSts": "01",
+                                  "TwnNm": "0300
+"
+                              }
+                          }
+                      }
+                  }
+              ]
           }
-        },
-        "SplmtryData" : [ {
-          "Envlp" : {
-            "Cstmr" : {
-              "Tp" : "01",
-              "Id" : "1020304050607080",
-              "RsdntSts" : "01",
-              "TwnNm" : "0300"
-            }
-          }
-        } ]
       }
-    }
   }
 }
