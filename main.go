@@ -60,19 +60,21 @@ func biller(w http.ResponseWriter, r *http.Request) {
 
 	var msgID string
 	var fileName string
+	bzMsgID := fmt.Sprintf("%v", *request.BusMsg.AppHdr.BusinessMessageIdentifier)
 	msgID = fmt.Sprintf("%v", *request.BusMsg.AppHdr.MessageDefinitionIdentifier)
 	log.Println("MsgDefIdn:", msgID)
-
+	Bz := bzMsgID[19:22]
+	fmt.Println(Bz)
 	switch msgID {
 	case "pacs.008.001.08":
-		// switch Bz{
-		// creditTransfer
-		// fileName = "sample_CreditTransfer_AccountID_pacs.008_request_OFI_to_CIHUB.xml.json"
-		//
-		// default:
-		//accountInquiry response
-		fileName = "sample_pacs.002_response_account_enquiry.json"
-	// }
+		switch Bz {
+		case "O02":
+			//creditTransfer
+			fileName = "sampleCreditTransferResponse.json"
+		default:
+			//accountInquiry response
+			fileName = "sample_pacs.002_response_account_enquiry.json"
+		}
 	case "prxy.001.001.01":
 		//proxyManagement
 		fileName = "sample_prxy.002_response_alias_mgmt_NEWR_CIHUB_to_OFI.xml copy.json"
@@ -81,7 +83,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		fileName = "sample_FItoFICreditTransfer_pacs.002_response_CIHUB_to_OFI.xml.json"
 	case "pacs.028.001.04":
 		//PaymentStatus Request
-		fileName = "PaymentStatusReqResponse.json"
+		fileName = "paymentStatusReqResponse.json"
 	case "prxy.003.001.01":
 		//Alias Resolution
 		fileName = "sample_prxy.004_response_alias_resolution_CIHUB_to_OFI.xml.json"
