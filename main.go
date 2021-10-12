@@ -22,7 +22,7 @@ func main() {
 
 	path := pathHandler()
 
-	address := "localhost:6066"
+	address := ":6066"
 	log.Printf("Biller started at %v", address)
 	err = http.ListenAndServe(address, path)
 	if err != nil {
