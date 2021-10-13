@@ -46,6 +46,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	// Lama waktu close connection BI-Biller
 
 	log.Println("New Request from BIFast Connector")
+	fmt.Println("New Request from BIFast Connector")
 
 	body, _ := ioutil.ReadAll(r.Body)
 	log.Println(string(body))
@@ -58,40 +59,42 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	log.Println("request: ", request)
 	var response interface{}
 
-	var msgID string
+	// var msgID string
 	var fileName string
 	bzMsgID := fmt.Sprintf("%v", *request.BusMsg.AppHdr.BusinessMessageIdentifier)
-	msgID = fmt.Sprintf("%v", *request.BusMsg.AppHdr.MessageDefinitionIdentifier)
-	log.Println("MsgDefIdn:", msgID)
-	Bz := bzMsgID[19:22]
-	fmt.Println(Bz)
-	switch msgID {
-	case "pacs.008.001.08":
-		switch Bz {
-		case "O02":
-			//creditTransfer
-			fileName = "sampleCreditTransferResponse.json"
-		default:
-			//accountInquiry response
-			fileName = "sample_pacs.002_response_account_enquiry.json"
-		}
-	case "prxy.001.001.01":
-		//proxyManagement
-		fileName = "sample_prxy.002_response_alias_mgmt_NEWR_CIHUB_to_OFI.xml copy.json"
-	case "pacs.009.001.09":
-		//FItoFI
-		fileName = "sample_FItoFICreditTransfer_pacs.002_response_CIHUB_to_OFI.xml.json"
-	case "pacs.028.001.04":
-		//PaymentStatus Request
-		fileName = "paymentStatusReqResponse.json"
-	case "prxy.003.001.01":
-		//Alias Resolution
-		fileName = "sample_prxy.004_response_alias_resolution_CIHUB_to_OFI.xml.json"
-	case "prxy.005.001.01":
-		//Alias Registration
-		fileName = "sample_prxy.006_response_alias_enquiry_CIHUB_to_OFI.xml.json"
-		// default:
-		// 	fileName = "sample_pacs.002_response_account_enquiry.json"
+	// msgID = fmt.Sprintf("%v", *request.BusMsg.AppHdr.MessageDefinitionIdentifier)
+	// log.Println("MsgDefIdn:", msgID)
+	businessCode := bzMsgID[16:19]
+	fmt.Println(businessCode)
+
+	switch businessCode {
+	case "010": // Credit Transfer
+		fileName = "sampleCreditTransferResponse.json"
+		fmt.Println("010")
+	case "019":
+		fileName = "sampleFItoFICreditTransfer.json"
+		fmt.Println("019")
+	case "011":
+		fileName = "sampleReverseCreditTransfer.json"
+		fmt.Println("011")
+	case "110":
+		fileName = "sampleCreditTransferResponsewithProxy.json"
+		fmt.Println("110")
+	case "510":
+		fileName = "sampleAccountEnquiry.json"
+		fmt.Println("510")
+	case "610":
+		fileName = "sampleProxyResolution.json"
+		fmt.Println("610")
+	case "620":
+		fileName = "sampleProxyRegistrationInquiry.json"
+		fmt.Println("620")
+	case "710":
+		fileName = "sampleRegisterNewProxy.json"
+		fmt.Println("710")
+	case "720":
+		fileName = "sampleProxyMaintenance.json"
+		fmt.Println("720")
 	}
 
 	//fmt.Println("Enter file name: ")
@@ -99,7 +102,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	//fmt.Scanln(&fileName)
 	//
 	fileName = "samples/" + fileName
-	log.Println("filename:", fileName)
+	fmt.Println("filename:", fileName)
 
 	file, _ := os.Open(fileName)
 	defer file.Close()
@@ -109,7 +112,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	json.Unmarshal(b, &response)
-	log.Println("response:", response)
+	fmt.Println("response:", response)
 
 	responseFormatter(w, response, 200)
 }
