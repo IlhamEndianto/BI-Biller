@@ -33,11 +33,11 @@
                 {
                    "OrgnlEndToEndId":"20210301INDOIDJA510ORB12345678",
                    "OrgnlTxId":"20210301INDOIDJA51012345678",
-                   "TxSts":"ACTC",
+                   "TxSts":"RJCT",
                    "StsRsnInf":[
                       {
                          "Rsn":{
-                            "Prtry":"U000"
+                            "Prtry":"U182"
                          }
                       }
                    ],

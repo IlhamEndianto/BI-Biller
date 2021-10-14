@@ -44,9 +44,9 @@
                 "OrgnlCreDtTm":"2021-09-27T18:59:58"
              },
              "NqryRspn":{
-                "PrxRspnSts":"ACTC",
+                "PrxRspnSts":"RJCT",
                 "StsRsnInf":{
-                   "Prtry":"U000"
+                   "Prtry":"U101"
                 },
                 "Rspn":[
                    {

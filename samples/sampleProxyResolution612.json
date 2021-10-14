@@ -50,9 +50,9 @@
                    "Val":"0211234567"
                 },
                 "RegnRspn":{
-                   "PrxRspnSts":"ACTC",
+                   "PrxRspnSts":"RJCT",
                    "StsRsnInf":{
-                      "Prtry":"U000"
+                      "Prtry":"U804"
                    },
                    "Prxy":{
                       "Tp":"01",

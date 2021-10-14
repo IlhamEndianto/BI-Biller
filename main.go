@@ -68,33 +68,71 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(businessCode)
 
 	switch businessCode {
+
+	//##################### Credit Transfer ###################################
 	case "010": // Credit Transfer
 		fileName = "sampleCreditTransferResponse.json"
 		fmt.Println("010")
+	case "012":
+		fileName = "sampleCreditTransferResponse012.json"
+		fmt.Println("012")
+	case "110":
+		fileName = "sampleCreditTransferResponsewithProxy.json"
+		fmt.Println("110")
+	//==========================================================================
+
 	case "019":
 		fileName = "sampleFItoFICreditTransfer.json"
 		fmt.Println("019")
 	case "011":
 		fileName = "sampleReverseCreditTransfer.json"
 		fmt.Println("011")
-	case "110":
-		fileName = "sampleCreditTransferResponsewithProxy.json"
-		fmt.Println("110")
+
+	// ##################### Account Enquiry ##################################
 	case "510":
 		fileName = "sampleAccountEnquiry.json"
 		fmt.Println("510")
+	case "511":
+		fileName = "sampleAccountEnquiry511.json"
+		fmt.Println("511")
+	// =========================================================================
+
+	// ################# Proxy Resolution #####################################
 	case "610":
 		fileName = "sampleProxyResolution.json"
 		fmt.Println("610")
+	case "611":
+		fileName = "sampleProxyResolution611.json"
+		fmt.Println("611")
+	case "612":
+		fileName = "sampleProxyResolution612.json"
+		fmt.Println(("612"))
+	// =========================================================================
+
+	// ################# Proxy Registration Inquiry ############################
 	case "620":
 		fileName = "sampleProxyRegistrationInquiry.json"
 		fmt.Println("620")
+	case "621":
+		fileName = "sampleProxyRegistrationInquiry621.json"
+		fmt.Println("621")
+	case "622":
+		fileName = "sampleProxyRegistrationInquiry622.json"
+		fmt.Println("622")
+	// =========================================================================
+
 	case "710":
 		fileName = "sampleRegisterNewProxy.json"
 		fmt.Println("710")
+
+	//#################### Proxy Maintenance ###################################
 	case "720":
 		fileName = "sampleProxyMaintenance.json"
 		fmt.Println("720")
+	case "721":
+		fileName = "sampleProxyMaintenance721.json"
+		fmt.Println("721")
+		//============================================================================
 	}
 
 	//fmt.Println("Enter file name: ")
