@@ -9,7 +9,7 @@ import (
 	"os"
 
 	"github.com/gorilla/mux"
-	"github.com/j03hanafi/bankiso/iso20022/head"
+	"github.com/j03hanafi/bankiso/iso20022/pacs"
 )
 
 func main() {
@@ -40,11 +40,6 @@ func pathHandler() *mux.Router {
 }
 
 func biller(w http.ResponseWriter, r *http.Request) {
-	// TODO
-	// Simulator return response based on msgID
-	// Mapping JSON config untuk request-response (ex: req->pacs008, res->pacs002). Referensi: BI-FAST Participant Guide - Format Interface v1.0
-	// Lama waktu close connection BI-Biller
-
 	log.Println("New Request from BIFast Connector")
 	fmt.Println("New Request from BIFast Connector")
 
@@ -62,12 +57,25 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	// var msgID string
 	var fileName string
 	bzMsgID := fmt.Sprintf("%v", *request.BusMsg.AppHdr.BusinessMessageIdentifier)
-	// msgID = fmt.Sprintf("%v", *request.BusMsg.AppHdr.MessageDefinitionIdentifier)
-	// log.Println("MsgDefIdn:", msgID)
-	businessCode := bzMsgID[16:19]
-	fmt.Println(businessCode)
+	DocumentValue := request.BusMsg.Document
+	trxType := bzMsgID[16:19]
+	fmt.Println(trxType)
 
-	switch businessCode {
+	switch trxType {
+	// ##################### Account Enquiry ##################################
+	case "510":
+		document := pacs.Document00800108{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error unmarshal: ", err)
+		}
+		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
+		switch CrAccId {
+		case "510654300":
+			fileName = "sampeAccountEnquiry.json"
+		case "511654182":
+			//file yang case U182
+		}
 
 	//##################### Credit Transfer ###################################
 	case "010": // Credit Transfer
@@ -87,15 +95,6 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	case "011":
 		fileName = "sampleReverseCreditTransfer.json"
 		fmt.Println("011")
-
-	// ##################### Account Enquiry ##################################
-	case "510":
-		fileName = "sampleAccountEnquiry.json"
-		fmt.Println("510")
-	case "511":
-		fileName = "sampleAccountEnquiry511.json"
-		fmt.Println("511")
-	// =========================================================================
 
 	// ################# Proxy Resolution #####################################
 	case "610":
@@ -159,32 +158,4 @@ func responseFormatter(w http.ResponseWriter, data interface{}, statusCode int) 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
 	json.NewEncoder(w).Encode(data)
-}
-
-// type tempDocumentXML interface{}
-type ChannelInput struct {
-	BusMsg BusMsg `xml:"BusMsg" json:"BusMsg"`
-}
-
-type BusMsg struct {
-	AppHdr   *head.BusinessApplicationHeaderV01 `xml:"AppHdr" json:"AppHdr"`
-	Document json.RawMessage                    `xml:"Document" json:"Document"`
-}
-
-func getFileName(BzID string) (fileName string) {
-	switch BzID {
-	case "20210301INDOIDJA610ORB11111111":
-		fileName = "sample_prxy.002_dummyDeregist.json"
-	case "20210301INDOIDJA610ORB22222222":
-		fileName = "sample_prxy.002_dummyUpdate.json"
-	case "20210301INDOIDJA610ORB33333333":
-		fileName = "sample_prxy.002_dummySuspend.json"
-	case "20210301INDOIDJA610ORB44444444":
-		fileName = "sample_prxy.002_dummyActivation.json"
-	case "20210301INDOIDJA610ORB55555555":
-		fileName = "sample_prxy.002_dummyPorting.json"
-	default:
-		fileName = "sample_prxy.002_response_alias_mgmt_NEWR_CIHUB_to_OFI.xml.json"
-	}
-	return fileName
 }
