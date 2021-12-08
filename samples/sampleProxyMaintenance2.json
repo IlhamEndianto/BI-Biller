@@ -46,7 +46,7 @@
              "RegnRspn":{
                 "PrxRspnSts":"ACTC",
                 "StsRsnInf":{
-                   "Prtry":"U000"
+                   "Prtry":"U101"
                 },
                 "OrgnlRegnTp":"NEWR",
                 "PrxyRegn":[
@@ -65,7 +65,7 @@
                                "Dtl":{
                                   "Cstmr":{
                                      "Tp":"01",
-                                     "Id":"7202345600",
+                                     "Id":"7212345101",
                                      "RsdntSts":"01",
                                      "TwnNm":"0300"
                                   }

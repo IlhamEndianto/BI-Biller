@@ -10,6 +10,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/j03hanafi/bankiso/iso20022/pacs"
+	"github.com/j03hanafi/bankiso/iso20022/prxy"
 )
 
 func main() {
@@ -59,7 +60,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	bzMsgID := fmt.Sprintf("%v", *request.BusMsg.AppHdr.BusinessMessageIdentifier)
 	DocumentValue := request.BusMsg.Document
 	trxType := bzMsgID[16:19]
-	fmt.Println(trxType)
+	fmt.Println("trxType:", trxType)
 
 	switch trxType {
 	// ##################### Account Enquiry ##################################
@@ -72,15 +73,25 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
 		switch CrAccId {
 		case "510654300":
-			fileName = "sampeAccountEnquiry.json"
+			fileName = "sampleAccountEnquiry.json"
 		case "511654182":
-			//file yang case U182
+			fileName = "sampleAccountEnquiry2.json"
 		}
 
 	//##################### Credit Transfer ###################################
 	case "010": // Credit Transfer
-		fileName = "sampleCreditTransferResponse.json"
-		fmt.Println("010")
+		document := pacs.Document00800108{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error unmarshal: ", err)
+		}
+		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
+		switch CrAccId {
+		case "0102345600":
+			fileName = "sampleCreditTransferResponse.json"
+		case "0102345184":
+			fileName = "sampleCreditTransferResponse2.json"
+		}
 	case "012":
 		fileName = "sampleCreditTransferResponse012.json"
 		fmt.Println("012")
@@ -98,8 +109,30 @@ func biller(w http.ResponseWriter, r *http.Request) {
 
 	// ################# Proxy Resolution #####################################
 	case "610":
-		fileName = "sampleProxyResolution.json"
-		fmt.Println("610")
+		document := prxy.Document00300101{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error unmarshal: ", err)
+		}
+		PxValue := *document.Message.LookUp.PrxyOnly.PrxyRtrvl.Val
+		switch PxValue {
+		case "086102345000":
+			fileName = "sampleProxyResolution.json"
+		case "086112345101":
+			fileName = "sampleProxyResolution2.json"
+		case "086112345804":
+			fileName = "sampleProxyResolution3.json"
+		case "086132345600":
+			fileName = "sampleProxyResolution4.json"
+		case "086142345804":
+			fileName = "sampleProxyResolution5.json"
+		case "08615234804":
+			fileName = "sampleProxyResolution6.json"
+		case "08616234811":
+			fileName = "sampleProxyResolution7.json"
+		case "08617234805":
+			fileName = "sampleProxyResolution8.json"
+		}
 	case "611":
 		fileName = "sampleProxyResolution611.json"
 		fmt.Println("611")
@@ -110,8 +143,29 @@ func biller(w http.ResponseWriter, r *http.Request) {
 
 	// ################# Proxy Registration Inquiry ############################
 	case "620":
-		fileName = "sampleProxyRegistrationInquiry.json"
-		fmt.Println("620")
+		document := prxy.Document00500101{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error unmarshal: ", err)
+		}
+		CsAccId := *document.Message.GroupHeader.MessageSender.Account.Identification.Other.Identification
+		fmt.Println(CsAccId)
+		switch CsAccId {
+		case "6202345600":
+			fileName = "sampleProxyRegistrationInquiry.json"
+		case "6212345101":
+			fileName = "sampleProxyRegistrationInquiry2.json"
+		case "6222345808":
+			fileName = "sampleProxyRegistrationInquiry3.json"
+		case "6232345600":
+			fileName = "sampleProxyRegistrationInquiry4.json"
+		case "6242345600":
+			fileName = "sampleProxyRegistrationInquiry5.json"
+		case "6252345808":
+			fileName = "sampleProxyRegistrationInquiry6.json"
+		case "6262345806":
+			fileName = "sampleProxyRegistrationInquiry7.json"
+		}
 	case "621":
 		fileName = "sampleProxyRegistrationInquiry621.json"
 		fmt.Println("621")
@@ -126,8 +180,18 @@ func biller(w http.ResponseWriter, r *http.Request) {
 
 	//#################### Proxy Maintenance ###################################
 	case "720":
-		fileName = "sampleProxyMaintenance.json"
-		fmt.Println("720")
+		document := prxy.Document00100101{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error unmarshal: ", err)
+		}
+		SdAccNum := *document.Message.SupplementaryData[0].Envlp.Dtl.Cstmr.Id
+		switch SdAccNum {
+		case "7202345600":
+			fileName = "sampleProxyMaintenance.json"
+		case "7212345101":
+			fileName = "sampleProxyMaintenance2.json"
+		}
 	case "721":
 		fileName = "sampleProxyMaintenance721.json"
 		fmt.Println("721")
@@ -149,7 +213,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	json.Unmarshal(b, &response)
-	fmt.Println("response:", response)
+	// fmt.Println("response:", response)
 
 	responseFormatter(w, response, 200)
 }

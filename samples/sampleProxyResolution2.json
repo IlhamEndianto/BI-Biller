@@ -52,11 +52,11 @@
                 "RegnRspn":{
                    "PrxRspnSts":"ACTC",
                    "StsRsnInf":{
-                      "Prtry":"U000"
+                      "Prtry":"U101"
                    },
                    "Prxy":{
                       "Tp":"01",
-                      "Val":"086102345000"
+                      "Val":"086112345101"
                    },
                    "Regn":{
                       "RegnId":"0102030405060708",

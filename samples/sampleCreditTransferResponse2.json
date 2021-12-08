@@ -40,7 +40,7 @@
 					"TxSts": "ACTC",
 					"StsRsnInf": [{
 						"Rsn": {
-							"Prtry": "U000"
+							"Prtry": "U184"
 						},
 						"AddtlInf": ["O 1234"]
 					}],
@@ -57,7 +57,7 @@
 							"Dtl": {
 								"Cdtr": {
 									"Tp": "01",
-									"Id": "0102345600",
+									"Id": "0102345184",
 									"RsdntSts": "01",
 									"TwnNm": "0300"
 								}
