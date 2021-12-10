@@ -37,7 +37,7 @@
 				"TxInfAndSts": [{
 					"OrgnlEndToEndId": "20210301INDOIDJA010ORB12345678",
 					"OrgnlTxId": "20210301INDOIDJA01012345678",
-					"TxSts": "ACTC",
+					"TxSts": "RJCT",
 					"StsRsnInf": [{
 						"Rsn": {
 							"Prtry": "U184"
