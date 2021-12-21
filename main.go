@@ -52,7 +52,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Printf("Error unmarshal JSON: %s", err.Error())
 	}
-	log.Println("request: ", request)
+	log.Println("request: ", string(request.BusMsg.Document))
 	var response interface{}
 
 	// var msgID string
@@ -72,6 +72,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("Error unmarshal: ", err)
 		}
 		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
+		fmt.Println(CrAccId)
 		switch CrAccId {
 		case "510654300":
 			fileName = "sampleAccountEnquiry.json"
@@ -149,9 +150,9 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println("Error unmarshal: ", err)
 		}
-		CsAccId := *document.Message.GroupHeader.MessageSender.Account.Identification.Other.Identification
-		fmt.Println(CsAccId)
-		switch CsAccId {
+		PxRegId := *document.Message.Nqry.RegnId
+		fmt.Println(PxRegId)
+		switch PxRegId {
 		case "6202345600":
 			fileName = "sampleProxyRegistrationInquiry.json"
 		case "6212345101":
@@ -186,8 +187,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println("Error unmarshal: ", err)
 		}
-		SdAccNum := *document.Message.SupplementaryData[0].Envlp.Dtl.Cstmr.Id
-		switch SdAccNum {
+		PxValue := *document.Message.Regn.Prxy.Val
+		switch PxValue {
 		case "7202345600":
 			fileName = "sampleProxyMaintenance.json"
 		case "7212345101":
