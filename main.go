@@ -59,6 +59,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	var fileName string
 	bzMsgID := fmt.Sprintf("%v", *request.BusMsg.AppHdr.BusinessMessageIdentifier)
 	DocumentValue := request.BusMsg.Document
+	fmt.Println(string(DocumentValue))
 	trxType := bzMsgID[16:19]
 	fmt.Println("trxType:", trxType)
 
@@ -196,6 +197,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		fileName = "sampleProxyMaintenance721.json"
 		fmt.Println("721")
 		//============================================================================
+
+	case "000":
+		fileName = "PaymentStatusReqResponse.json"
+		fmt.Println("000")
 	}
 
 	//fmt.Println("Enter file name: ")
