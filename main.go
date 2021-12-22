@@ -202,6 +202,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	case "000":
 		fileName = "PaymentStatusReqResponse.json"
 		fmt.Println("000")
+
+	default:
+		fileName = "rejectMessage.json"
+		fmt.Println("Default")
 	}
 
 	//fmt.Println("Enter file name: ")
