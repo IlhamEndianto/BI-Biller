@@ -78,6 +78,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleAccountEnquiry.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
+		case "0000000000":
+			fileName = "rejectMessage.json"
 		}
 
 	//##################### Credit Transfer ###################################
@@ -93,6 +95,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleCreditTransferResponse.json"
 		case "0102345184":
 			fileName = "sampleCreditTransferResponse2.json"
+		case "0000000000":
+			fileName = "rejectMessage.json"
 		}
 	case "012":
 		fileName = "sampleCreditTransferResponse012.json"
@@ -134,6 +138,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleProxyResolution7.json"
 		case "08617234805":
 			fileName = "sampleProxyResolution8.json"
+		case "0000000000":
+			fileName = "rejectMessage.json"
 		}
 	case "611":
 		fileName = "sampleProxyResolution611.json"
@@ -167,6 +173,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleProxyRegistrationInquiry6.json"
 		case "6262345806":
 			fileName = "sampleProxyRegistrationInquiry7.json"
+		case "0000000000":
+			fileName = "rejectMessage.json"
 		}
 	case "621":
 		fileName = "sampleProxyRegistrationInquiry621.json"
@@ -193,6 +201,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleProxyMaintenance.json"
 		case "7212345101":
 			fileName = "sampleProxyMaintenance2.json"
+		case "0000000000":
+			fileName = "rejectMessage.json"
 		}
 	case "721":
 		fileName = "sampleProxyMaintenance721.json"
