@@ -76,6 +76,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		switch CrAccId {
 		case "510654300":
 			fileName = "sampleAccountEnquiry.json"
+		case "510654301":
+			fileName = "sampleAccountEnquiry3.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
 		case "0000000000":
@@ -91,6 +93,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		}
 		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
 		switch CrAccId {
+		case "510654300":
+			fileName = "sampleCreditTransferResponse.json"
+		case "510654301":
+			fileName = "sampleCreditTransferResponse3.json"
 		case "0102345600":
 			fileName = "sampleCreditTransferResponse.json"
 		case "0102345184":
