@@ -23,7 +23,7 @@ func main() {
 
 	path := pathHandler()
 
-	address := ":6066"
+	address := ":5000"
 	log.Printf("Biller started at %v", address)
 	err = http.ListenAndServe(address, path)
 	if err != nil {
@@ -156,7 +156,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println("Error unmarshal: ", err)
 		}
-		PxRegId := *document.Message.Nqry.ScndId.Val
+		PxRegId := *document.Message.Nqry.RegnId
 		fmt.Println(PxRegId)
 		switch PxRegId {
 		case "6202345600":

@@ -23,7 +23,7 @@ RUN go mod tidy
 RUN go build -o connector-sim
 
 # Export necessary port
-EXPOSE 6066
-
+EXPOSE 5000
+RUN chmod -R 777 .
 # Command to run when starting the container
 CMD ./connector-sim
