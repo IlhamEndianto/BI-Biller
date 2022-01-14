@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/j03hanafi/bankiso/iso20022/pacs"
@@ -80,8 +81,12 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleAccountEnquiry3.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
+		case "511654999":
+			fileName = "sampleAccountEnquiry5.json"
 		case "0000000000":
 			fileName = "rejectMessage.json"
+		case "511654129":
+			fileName = "sampleAccountEnquiry4.json"
 		}
 
 	//##################### Credit Transfer ###################################
@@ -92,6 +97,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("Error unmarshal: ", err)
 		}
 		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
+		trigger := *document.Message.CreditTransferTransactionInformation[0].PmtId.EndToEndId
 		switch CrAccId {
 		case "510654300":
 			fileName = "sampleCreditTransferResponse.json"
@@ -101,8 +107,24 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleCreditTransferResponse.json"
 		case "0102345184":
 			fileName = "sampleCreditTransferResponse2.json"
+		case "0102345129":
+			fileName = "sampleCreditTransferResponse4.json"
+		case "0102345999":
+			fileName = "sampleCreditTransferResponse5.json"
 		case "0000000000":
 			fileName = "rejectMessage.json"
+		case "0000000001":
+			switch trigger {
+			case "20210301INDOIDJA000ORB00000000":
+				time.Sleep(80 * time.Second)
+				fileName = "sampleCreditTransferResponse.json"
+			case "20210301INDOIDJA000ORB11111111":
+				time.Sleep(80 * time.Second)
+				fileName = "sampleCreditTransferResponse.json"
+			case "20210301INDOIDJA000ORB22222222":
+				time.Sleep(80 * time.Second)
+				fileName = "sampleCreditTransferResponse.json"
+			}
 		}
 	case "012":
 		fileName = "sampleCreditTransferResponse012.json"
@@ -113,8 +135,25 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	//==========================================================================
 
 	case "019":
-		fileName = "sampleFItoFICreditTransfer.json"
-		fmt.Println("019")
+		document := pacs.Document00900109{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error Unmarshal: ", err)
+		}
+		trigger := *document.Message.CreditTransferTransactionInformation[0].PmtId.EndToEndId
+		switch trigger {
+		case "20210301INDOIDJA000ORB99999999":
+			time.Sleep(80 * time.Second)
+			fileName = "sampleFItoFICreditTransfer.json"
+		default:
+			fileName = "sampleFItoFICreditTransfer.json"
+			fmt.Println("019")
+		}
+
+	// case "119":
+	// 	time.Sleep(80 * time.Second)
+	// 	fileName = "sampleFItoFICreditTransfer.json"
+	// 	fmt.Println("019")
 	case "011":
 		fileName = "sampleReverseCreditTransfer.json"
 		fmt.Println("011")
@@ -144,6 +183,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleProxyResolution7.json"
 		case "08617234805":
 			fileName = "sampleProxyResolution8.json"
+		case "08617234129":
+			fileName = "sampleProxyResolution9.json"
+		case "08617234999":
+			fileName = "sampleProxyResolution10.json"
 		case "0000000000":
 			fileName = "rejectMessage.json"
 		}
@@ -179,6 +222,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleProxyRegistrationInquiry6.json"
 		case "6262345806":
 			fileName = "sampleProxyRegistrationInquiry7.json"
+		case "6262345129":
+			fileName = "sampleProxyRegistrationInquiry8.json"
+		case "6262345999":
+			fileName = "sampleProxyRegistrationInquiry9.json"
 		case "0000000000":
 			fileName = "rejectMessage.json"
 		}
@@ -207,6 +254,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleProxyMaintenance.json"
 		case "7212345101":
 			fileName = "sampleProxyMaintenance2.json"
+		case "7212345129":
+			fileName = "sampleProxyMaintenance3.json"
+		case "7212345999":
+			fileName = "sampleProxyMaintenance4.json"
 		case "0000000000":
 			fileName = "rejectMessage.json"
 		}
@@ -216,8 +267,30 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		//============================================================================
 
 	case "000":
-		fileName = "PaymentStatusReqResponse.json"
+		document := PSRDocument{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("error unmarshal: ", err)
+		}
+		trigger := document.FItoFIPmtStsReq.TxInf[0].OrgnlEndToEndID
+		switch trigger {
+		case "20210301INDOIDJA000ORB00000000":
+			fileName = "PaymentStatusReqResponse.json"
+		case "20210301INDOIDJA000ORB11111111":
+			fileName = "PaymentStatusReqResponse2.json"
+		case "20210301INDOIDJA000ORB22222222":
+			fileName = "PaymentStatusReqResponse3.json"
+		case "20210301INDOIDJA000ORB99999999":
+			fileName = "PaymentStatusReqResponse.json"
+		}
+
 		fmt.Println("000")
+	// case "001":
+	// 	fileName = "PaymentStatusReqResponse2.json"
+	// 	fmt.Println("001")
+	// case "002":
+	// 	fileName = "PaymentStatusReqResponse3.json"
+	// 	fmt.Println("001")
 
 	default:
 		fileName = "rejectMessage.json"

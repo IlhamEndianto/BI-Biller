@@ -1,0 +1,71 @@
+{
+	"BusMsg": {
+		"AppHdr": {
+			"Fr": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "NOBUIDJA"
+						}
+					}
+				}
+			},
+			"To": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "FASTIDJA"
+						}
+					}
+				}
+			},
+			"BizMsgIdr": "20210301FASTIDJA010HRB12345678",
+			"MsgDefIdr": "pacs.002.001.10",
+			"BizSvc": "CLEAR",
+			"CreDt": "2021-03-01T20:00:00"
+		},
+		"Document": {
+			"FItoFIPmtStsRpt": {
+				"GrpHdr": {
+					"MsgId": "20210301FASTIDJA01012345678",
+					"CreDtTm": "2021-03-01T19:00:00"
+				},
+				"OrgnlGrpInfAndSts": [{
+					"OrgnlMsgId": "20210301INDOIDJA01012345678",
+					"OrgnlMsgNmId": "pacs.008.001.08"
+				}],
+				"TxInfAndSts": [{
+					"OrgnlEndToEndId": "20210301INDOIDJA010ORB12345678",
+					"OrgnlTxId": "20210301INDOIDJA01012345678",
+					"TxSts": "RJCT",
+					"StsRsnInf": [{
+						"Rsn": {
+							"Prtry": "U129"
+						},
+						"AddtlInf": ["O 1234"]
+					}],
+					"OrgnlTxRef": {
+						"IntrBkSttlmDt": "2021-03-01",
+						"Cdtr": {
+							"Pty": {
+								"Nm": "JOHN SMITH"
+							}
+						}
+					},
+					"SplmtryData": [{
+						"Envlp": {
+							"Dtl": {
+								"Cdtr": {
+									"Tp": "01",
+									"Id": "0102345600",
+									"RsdntSts": "01",
+									"TwnNm": "0300"
+								}
+							}
+						}
+					}]
+				}]
+			}
+		}
+	}
+}
