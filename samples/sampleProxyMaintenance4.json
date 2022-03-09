@@ -1,0 +1,78 @@
+{
+	"BusMsg": {
+		"AppHdr": {
+			"Fr": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "NOBUIDJA"
+						}
+					}
+				}
+			},
+			"To": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "INDOIDJA"
+						}
+					}
+				}
+			},
+			"BizMsgIdr": "20210301INDOIDJA710HRB12345678",
+			"MsgDefIdr": "prxy.002.001.01",
+			"CreDt": "2021-03-01T20:00:00"
+		},
+		"Document": {
+			"PrxyRegnRspn": {
+				"GrpHdr": {
+					"MsgId": "20210301INDOIDJA71012345678",
+					"CreDtTm": "2021-03-01T19:00:00",
+					"MsgRcpt": {
+						"Agt": {
+							"FinInstnId": {
+								"Othr": {
+									"Id": "INDOIDJA"
+								}
+							}
+						}
+					}
+				},
+				"OrgnlGrpInf": {
+					"OrgnlMsgId": "20210301FASTIDJA010HRB12345678",
+					"OrgnlMsgNmId": "prxy.001.001.01",
+					"OrgnlCreDtTm": "2021-09-27T18:59:58"
+				},
+				"RegnRspn": {
+					"PrxRspnSts": "PEND",
+					"StsRsnInf": {
+						"Prtry": "U999"
+					},
+					"OrgnlRegnTp": "NEWR",
+					"PrxyRegn": [{
+						"RegnId": "6789012345",
+						"Agt": {
+							"FinInstnId": {
+								"Othr": {
+									"Id": "INDOIDJA"
+								}
+							}
+						}
+					}]
+				},
+				"SplmtryData": [{
+					"Envlp": {
+						"Dtl": {
+							"Cstmr": {
+								"Tp": "01",
+								"Id": "1020304050607080",
+								"RsdntSts": "01",
+								"TwnNm": "0300"
+							}
+						}
+					}
+				}]
+			}
+		}
+	}
+}
