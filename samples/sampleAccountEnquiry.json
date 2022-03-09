@@ -1,80 +1,69 @@
 {
-    "BusMsg":{
-       "AppHdr":{
-          "Fr":{
-             "FIId":{
-                "FinInstnId":{
-                   "Othr":{
-                      "Id":"NOBUIDJA"
-                   }
-                }
-             }
-          },
-          "To":{
-             "FIId":{
-                "FinInstnId":{
-                   "Othr":{
-                      "Id":"FASTIDJA"
-                   }
-                }
-             }
-          },
-          "BizMsgIdr":"20210301FASTIDJA510HRB12345678",
-          "MsgDefIdr":"pacs.002.001.10",
-          "CreDt":"2021-03-01T20:00:00"
-       },
-       "Document":{
-          "FItoFIPmtStsRpt":{
-             "GrpHdr":{
-                "MsgId":"20210301FASTIDJA51012345678",
-                "CreDtTm":"2021-03-01T19:00:00"
-             },
-             "TxInfAndSts":[
-                {
-                   "OrgnlEndToEndId":"20210301INDOIDJA510ORB12345678",
-                   "OrgnlTxId":"20210301INDOIDJA51012345678",
-                   "TxSts":"ACTC",
-                   "StsRsnInf":[
-                      {
-                         "Rsn":{
-                            "Prtry":"U000"
-                         }
-                      }
-                   ],
-                   "OrgnlTxRef":{
-                      "Cdtr":{
-                         "Pty":{
-                            "Nm":"JOHN SMITH"
-                         }
-                      },
-                      "CdtrAcct":{
-                         "Id":{
-                            "Othr":{
-                               "Id":"510654300"
-                            }
-                         },
-                         "Tp":{
-                            "Prtry":"CACC"
-                         }
-                      }
-                   },
-                   "SplmtryData":[
-                      {
-                         "Envlp":{
-                            "Dtl":{
-                               "Cdtr":{
-                                  "Tp":"01",
-                                  "Id":"0102030405060708",
-                                  "RsdntSts":"01",
-                                  "TwnNm":"0300"
-                               }
-                            }
-                         }
-                      }
-                   ]
-                }
-             ]
-          }
-       }
-    }
- }
+	"BusMsg": {
+		"AppHdr": {
+			"Fr": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "FASTIDJA"
+						}
+					}
+				}
+			},
+			"To": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "LFIBIDJ1"
+						}
+					}
+				}
+			},
+			"BizMsgIdr": "20220121FASTIDJA510H9903402919",
+			"MsgDefIdr": "pacs.002.001.10",
+			"BizSvc": "CLEAR",
+			"CreDt": "2022-01-21T07:38:44Z"
+		},
+		"Document": {
+			"FIToFIPmtStsRpt": {
+				"GrpHdr": {
+					"MsgId": "20220121ROYBIDJ151056388650",
+					"CreDtTm": "2022-01-21T14:38:42.042"
+				},
+				"OrgnlGrpInfAndSts": [{
+					"OrgnlMsgId": "20220121LFIBIDJ151000000170",
+					"OrgnlMsgNmId": "pacs.008.001.08"
+				}],
+				"TxInfAndSts": [{
+					"OrgnlEndToEndId": "20220121LFIBIDJ1510O0200000170",
+					"OrgnlTxId": "20220121LFIBIDJ151003355032",
+					"TxSts": "ACTC",
+					"StsRsnInf": [{
+						"Rsn": {
+							"Prtry": "U000"
+						}
+					}],
+					"ClrSysRef": "002",
+					"OrgnlTxRef": {
+						"IntrBkSttlmDt": "2021-10-26",
+						"Cdtr": {
+							"Pty": {
+								"Nm": "TEST 3"
+							}
+						},
+						"CdtrAcct": {
+							"Id": {
+								"Othr": {
+									"Id": "510654300"
+								}
+							},
+							"Tp": {
+								"Prtry": "CACC"
+							}
+						}
+					}
+				}]
+			}
+		}
+	}
+}

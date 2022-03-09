@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/j03hanafi/bankiso/iso20022/pacs"
@@ -78,6 +79,14 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleAccountEnquiry.json"
 		case "510654301":
 			fileName = "sampleAccountEnquiry3.json"
+		case "510654302":
+			fileName = "sampleAccountEnquiry4.json"
+		case "510654303":
+			fileName = "sampleAccountEnquiry5.json"
+		case "510654305":
+			fileName = "sampleAccountEnquiry6.json"
+		case "510654306":
+			fileName = "sampleAccountEnquiry7.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
 		case "0000000000":
@@ -97,6 +106,17 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleCreditTransferResponse.json"
 		case "510654301":
 			fileName = "sampleCreditTransferResponse3.json"
+		case "510654302":
+			time.Sleep(100 * time.Second)
+			fileName = "sampleCreditTransferResponse4.json"
+		case "510654303":
+			time.Sleep(5 * time.Second)
+			log.Panic("Panic Triggered!")
+			fileName = "sampleCreditTransferResponse5.json"
+		case "510654305":
+			fileName = "sampleCreditTransferResponse6.json"
+		case "510654306":
+			fileName = "sampleCreditTransferResponse7.json"
 		case "0102345600":
 			fileName = "sampleCreditTransferResponse.json"
 		case "0102345184":
