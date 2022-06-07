@@ -1,0 +1,96 @@
+{
+	"BusMsg": {
+		"AppHdr": {
+			"Fr": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "FASTIDJA"
+						}
+					}
+				}
+			},
+			"To": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "LFIBIDJ1"
+						}
+					}
+				}
+			},
+			"BizMsgIdr": "20220523FASTIDJA510H9954720119",
+			"MsgDefIdr": "pacs.002.001.10",
+			"BizSvc": "CLEAR",
+			"CreDt": "2022-05-23T07:32:22Z",
+			"PssblDplct": true
+		},
+		"Document": {
+			"FIToFIPmtStsRpt": {
+				"GrpHdr": {
+					"MsgId": "20220523MEGAIDJA51010268683",
+					"CreDtTm": "2022-05-23T07:32:21.310"
+				},
+				"OrgnlGrpInfAndSts": [{
+					"OrgnlMsgId": "20220523LFIBIDJ151000001438",
+					"OrgnlMsgNmId": "pacs.008.001.08"
+				}],
+				"TxInfAndSts": [{
+					"OrgnlEndToEndId": "20220523LFIBIDJ1510O0200001438",
+					"OrgnlTxId": "20220523LFIBIDJ1510538541222",
+					"TxSts": "ACTC",
+					"StsRsnInf": [{
+						"Rsn": {
+							"Prtry": "U000"
+						}
+					}],
+					"ClrSysRef": "003",
+					"OrgnlTxRef": {
+						"IntrBkSttlmDt": "2022-05-23",
+						"DbtrAgt": {
+							"FinInstnId": {
+								"Othr": {
+									"Id": "LFIBIDJ1"
+								}
+							}
+						},
+						"CdtrAgt": {
+							"FinInstnId": {
+								"Othr": {
+									"Id": "MEGAIDJA"
+								}
+							}
+						},
+						"Cdtr": {
+							"Pty": {
+								"Nm": "SEPTYANA INDAH KUSUM"
+							}
+						},
+						"CdtrAcct": {
+							"Id": {
+								"Othr": {
+									"Id": "020600022014769"
+								}
+							},
+							"Tp": {
+								"Prtry": "SVGS"
+							}
+						}
+					},
+					"SplmtryData": [{
+						"Envlp": {
+							"Dtl": {
+								"Cdtr": {
+									"Tp": "01",
+									"Id": "6471054109770008",
+									"RsdntSts": "02",
+									"TwnNm": "5492"
+								}
+							}
+						}
+					}]
+				}]
+			}
+		}
+	}
+}
