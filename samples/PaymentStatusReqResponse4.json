@@ -5,7 +5,7 @@
 			 "FIId":{
 				"FinInstnId":{
 				   "Othr":{
-					  "Id":"NOBUIDJA"
+					  "Id":"FASTIDJA"
 				   }
 				}
 			 }
@@ -14,7 +14,7 @@
 			 "FIId":{
 				"FinInstnId":{
 				   "Othr":{
-					  "Id":"FASTIDJA"
+					  "Id":"LFIBDIJ1"
 				   }
 				}
 			 }
@@ -39,9 +39,9 @@
 			 ],
 			 "TxInfAndSts":[
 				{
-				   "OrgnlEndToEndId":"20210301INDOIDJA010ORB12345678",
+				   "OrgnlEndToEndId":"20230628ROYBIDJ1010O0233167899",
 				   "OrgnlTxId":"20210301INDOIDJA01012345678",
-				   "TxSts":"ACTC",
+				   "TxSts":"ACSC",
 				   "StsRsnInf":[
 					  {
 						 "Rsn":{
@@ -56,13 +56,13 @@
 					  "IntrBkSttlmDt":"2021-03-01",
 					  "Dbtr":{
 						 "Pty":{
-							"Nm":"JAMES BROWN"
+							"Nm":"LOREM IPSUM"
 						 }
 					  },
 					  "DbtrAcct":{
 						 "Id":{
 							"Othr":{
-							   "Id":"123456789"
+							   "Id":"008882926200"
 							}
 						 },
 						 "Tp":{
@@ -72,26 +72,26 @@
 					  "DbtrAgt":{
 						 "FinInstnId":{
 							"Othr":{
-							   "Id":"INDOIDJA"
+							   "Id":"ROYBIDJ1"
 							}
 						 }
 					  },
 					  "CdtrAgt":{
 						 "FinInstnId":{
 							"Othr":{
-							   "Id":"CENAIDJA"
+							   "Id":"LFIBIDJ1"
 							}
 						 }
 					  },
 					  "Cdtr":{
 						 "Pty":{
-							"Nm":"JOHN SMITH"
+							"Nm":"KRISTIAN SANTOSO"
 						 }
 					  },
 					  "CdtrAcct":{
 						 "Id":{
 							"Othr":{
-							   "Id":"987654321"
+							   "Id":"10110271117"
 							}
 						 },
 						 "Tp":{
@@ -118,14 +118,14 @@
 							   "DbtrAgtAcct":{
 								  "Id":{
 									 "Othr":{
-										"Id":"654321098"
+										"Id":"008882926200"
 									 }
 								  }
 							   },
 							   "CdtrAgtAcct":{
 								  "Id":{
 									 "Othr":{
-										"Id":"890123456"
+										"Id":"10110271117"
 									 }
 								  }
 							   }

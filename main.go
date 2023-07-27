@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -75,11 +76,13 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
 		fmt.Println(CrAccId)
 		switch CrAccId {
-		case "510654300":
+		case "510654300": //AE U000 CT U170
 			fileName = "sampleAccountEnquiry.json"
-		case "510654301":
+		case "510654301": //AE U000 CT U000
+			// timeoutVal := rand.Intn(5)
+			// time.Sleep(time.Duration(timeoutVal) * time.Second)
 			fileName = "sampleAccountEnquiry3.json"
-		case "510654302":
+		case "510654302": //AE U000 CT PEND
 			fileName = "sampleAccountEnquiry4.json"
 		case "510654303":
 			fileName = "sampleAccountEnquiry5.json"
@@ -93,6 +96,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleAccountEnquiry9.json"
 		case "510654309":
 			fileName = "sampleAccountEnquiry10.json"
+		case "510654310":
+			fileName = "sampleAccountEnquiry11.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
 		case "511654999":
@@ -306,18 +311,24 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fmt.Println("error unmarshal: ", err)
 		}
 		trigger := document.FItoFIPmtStsReq.TxInf[0].OrgnlEndToEndID
-		switch trigger {
-		case "20210301INDOIDJA000ORB00000000":
-			fileName = "PaymentStatusReqResponse.json"
-		case "20210301INDOIDJA000ORB11111111":
-			fileName = "PaymentStatusReqResponse2.json"
-		case "20210301INDOIDJA000ORB22222222":
-			fileName = "PaymentStatusReqResponse3.json"
-		case "20210301INDOIDJA000ORB99999999":
+		// switch trigger {
+		// case "20210301INDOIDJA000ORB00000000":
+		// 	fileName = "PaymentStatusReqResponse.json"
+		// case "20210301INDOIDJA000ORB11111111":
+		// 	fileName = "PaymentStatusReqResponse2.json"
+		// case "20210301INDOIDJA000ORB22222222":
+		// 	fileName = "PaymentStatusReqResponse3.json"
+		// case "20210301INDOIDJA000ORB99999999":
+		// 	fileName = "PaymentStatusReqResponse.json"
+		switch {
+		case strings.Contains(trigger, "ROYBIDJ1010O02"):
+			fileName = "PaymentStatusReqResponse4.json"
+		case strings.Contains(trigger, "ROYBIDJ1010O01"):
+			fileName = "PaymentStatusReqResponse5.json"
+		case strings.Contains(trigger, "LFIBIDJ1010"):
 			fileName = "PaymentStatusReqResponse.json"
 		}
 
-		fmt.Println("000")
 	// case "001":
 	// 	fileName = "PaymentStatusReqResponse2.json"
 	// 	fmt.Println("001")
@@ -337,12 +348,17 @@ func biller(w http.ResponseWriter, r *http.Request) {
 	fileName = "samples/" + fileName
 	fmt.Println("filename:", fileName)
 
-	file, _ := os.Open(fileName)
+	file, err := os.Open(fileName)
+	if err != nil {
+		log.Println(err)
+		return
+	}
 	defer file.Close()
 
 	b, err := ioutil.ReadAll(file)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
+		return
 	}
 	json.Unmarshal(b, &response)
 	// fmt.Println("response:", response)

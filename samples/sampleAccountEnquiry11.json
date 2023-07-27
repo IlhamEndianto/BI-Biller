@@ -1,0 +1,81 @@
+{
+	"BusMsg": {
+		"AppHdr": {
+			"Fr": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "FASTIDJA"
+						}
+					}
+				}
+			},
+			"To": {
+				"FIId": {
+					"FinInstnId": {
+						"Othr": {
+							"Id": "LFIBIDJ1"
+						}
+					}
+				}
+			},
+			"BizMsgIdr": "20230623FASTIDJA510H9915538021",
+			"MsgDefIdr": "pacs.002.001.10",
+			"BizSvc": "CLEAR",
+			"CreDt": "2023-06-23T06:57:09Z"
+		},
+		"Document": {
+			"FIToFIPmtStsRpt": {
+				"GrpHdr": {
+					"MsgId": "20230623LFIBIDJ151000000047",
+					"CreDtTm": "2023-06-23T13:57:08.985"
+				},
+				"OrgnlGrpInfAndSts": [
+					{
+						"OrgnlMsgId": "20230623LFIBIDJ151000000047",
+						"OrgnlMsgNmId": "pacs.008.001.08"
+					}
+				],
+				"TxInfAndSts": [
+					{
+						"OrgnlEndToEndId": "20230623LFIBIDJ1510O0200000047",
+						"OrgnlTxId": "20230623LFIBIDJ151000000047",
+						"TxSts": "RJCT",
+						"StsRsnInf": [
+							{
+								"Rsn": {
+									"Prtry": "53"
+								}
+							}
+						],
+						"ClrSysRef": "003",
+						"OrgnlTxRef": {
+							"IntrBkSttlmDt": "2023-06-23",
+							"Cdtr": {
+								"Pty": {
+									"Nm": " "
+								}
+							},
+							"CdtrAcct": {
+								"Id": {
+									"Othr": {
+										"Id": "703168366800"
+									}
+								}
+							}
+						},
+						"SplmtryData": [
+							{
+								"Envlp": {
+									"Dtl": {
+										"Cdtr": ""
+									}
+								}
+							}
+						]
+					}
+				]
+			}
+		}
+	}
+}
