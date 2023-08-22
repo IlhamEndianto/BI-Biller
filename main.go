@@ -37,7 +37,7 @@ func pathHandler() *mux.Router {
 
 	router := mux.NewRouter()
 
-	router.HandleFunc("/biller", biller).Methods("POST")
+	router.HandleFunc("/", biller).Methods("POST")
 
 	return router
 }
