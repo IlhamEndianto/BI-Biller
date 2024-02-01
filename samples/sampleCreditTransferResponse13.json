@@ -55,12 +55,7 @@
 					"SplmtryData": [{
 						"Envlp": {
 							"Dtl": {
-								"Cdtr": {
-									"Tp": "01",
-									"Id": "510654301",
-									"RsdntSts": "01",
-									"TwnNm": "0300"
-								}
+								"Cdtr": ""
 							}
 						}
 					}]

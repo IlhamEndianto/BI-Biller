@@ -25,7 +25,7 @@
 			"CreDt": "2021-03-01T20:00:00"
 		},
 		"Document": {
-			"FItoFIPmtStsRpt": {
+			"FIToFIPmtStsRpt": {
 				"GrpHdr": {
 					"MsgId": "20210301FASTIDJA01012345678",
 					"CreDtTm": "2021-03-01T19:00:00"

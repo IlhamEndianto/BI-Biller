@@ -98,6 +98,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleAccountEnquiry10.json"
 		case "510654310":
 			fileName = "sampleAccountEnquiry11.json"
+		case "510654313":
+			fileName = "sampleAccountEnquiry13.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
 		case "511654999":
@@ -141,6 +143,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleCreditTransferResponse9.json"
 		case "510654309":
 			fileName = "sampleCreditTransferResponse10.json"
+		case "510654313":
+			fileName = "sampleCreditTransferResponse13.json"
 		case "0102345600":
 			fileName = "sampleCreditTransferResponse.json"
 		case "0102345184":
@@ -205,7 +209,7 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		}
 		PxValue := *document.Message.LookUp.PrxyOnly.PrxyRtrvl.Val
 		switch PxValue {
-		case "086102345000":
+		case "086112345000":
 			fileName = "sampleProxyResolution.json"
 		case "086112345101":
 			fileName = "sampleProxyResolution2.json"
