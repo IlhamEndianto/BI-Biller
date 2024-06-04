@@ -1,0 +1,81 @@
+{
+    "BusMsg": {
+        "AppHdr": {
+            "Fr": {
+                "FIId": {
+                    "FinInstnId": {
+                        "Othr": {
+                            "Id": "FASTIDJA"
+                        }
+                    }
+                }
+            },
+            "To": {
+                "FIId": {
+                    "FinInstnId": {
+                        "Othr": {
+                            "Id": "LFIBIDJ1"
+                        }
+                    }
+                }
+            },
+            "BizMsgIdr": "20240523FASTIDJA510H9982338136",
+            "MsgDefIdr": "pacs.002.001.10",
+            "BizSvc": "CLEAR",
+            "CreDt": "2024-05-23T03:55:30Z"
+        },
+        "Document": {
+            "FIToFIPmtStsRpt": {
+                "GrpHdr": {
+                    "MsgId": "20240523LFIBIDJ151000009614",
+                    "CreDtTm": "2024-05-23T10:55:30.167"
+                },
+                "OrgnlGrpInfAndSts": [
+                    {
+                        "OrgnlMsgId": "20240523LFIBIDJ151000009614",
+                        "OrgnlMsgNmId": "pacs.008.001.08"
+                    }
+                ],
+                "TxInfAndSts": [
+                    {
+                        "OrgnlEndToEndId": "20240523LFIBIDJ1510O0200009614",
+                        "OrgnlTxId": "20240523LFIBIDJ151000009614",
+                        "TxSts": "RJCT",
+                        "StsRsnInf": [
+                            {
+                                "Rsn": {
+                                    "Prtry": "62"
+                                }
+                            }
+                        ],
+                        "ClrSysRef": "002",
+                        "OrgnlTxRef": {
+                            "IntrBkSttlmDt": "2024-05-23",
+                            "Cdtr": {
+                                "Pty": {
+                                    "Nm": "TEST5 "
+                                }
+                            },
+                            "CdtrAcct": {
+                                "Id": {
+                                    "Othr": {
+                                        "Id": "510654314"
+                                    }
+                                }
+                            }
+                        },
+                        "SplmtryData": [
+                            {
+                                "Envlp": {
+                                    "Dtl": {
+                                        "Cdtr": ""
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

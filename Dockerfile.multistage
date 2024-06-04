@@ -17,7 +17,7 @@ RUN go build -tags netgo -a -v -o connector-sim .
 
 
 # cleaning stage
-FROM ubuntu:20.04
+FROM ubuntu:20.10
 
 WORKDIR /build
 

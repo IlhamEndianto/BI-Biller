@@ -100,6 +100,10 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleAccountEnquiry11.json"
 		case "510654313":
 			fileName = "sampleAccountEnquiry13.json"
+		case "510654314":
+			fileName = "sampleAccountEnquiry14.json"
+		case "510654315":
+			fileName = "sampleAccountEnquiry15.json"
 		case "511654182":
 			fileName = "sampleAccountEnquiry2.json"
 		case "511654999":
@@ -145,6 +149,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "sampleCreditTransferResponse10.json"
 		case "510654313":
 			fileName = "sampleCreditTransferResponse13.json"
+		case "510654314":
+			fileName = "sampleCreditTransferResponse14.json"
 		case "0102345600":
 			fileName = "sampleCreditTransferResponse.json"
 		case "0102345184":
@@ -172,8 +178,23 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		fileName = "sampleCreditTransferResponse012.json"
 		fmt.Println("012")
 	case "110":
-		fileName = "sampleCreditTransferResponsewithProxy.json"
+		// fileName = "sampleCreditTransferResponsewithProxy.json"
 		fmt.Println("110")
+		document := pacs.Document00800108{}
+		err := json.Unmarshal(DocumentValue, &document)
+		if err != nil {
+			fmt.Println("Error unmarshal: ", err)
+		}
+		CrAccId := *document.Message.CreditTransferTransactionInformation[0].CdtrAcct.Id.Other.Identification
+		// trigger := *document.Message.CreditTransferTransactionInformation[0].PmtId.EndToEndId
+		switch CrAccId {
+		case "510654300":
+			fileName = "sampleCreditTransferProxyResponse.json"
+		case "510654301":
+			fileName = "sampleCreditTransferProxyResponse2.json"
+		case "510654314":
+			fileName = "sampleCreditTransferProxyResponse3.json"
+		}
 	//==========================================================================
 
 	case "019":
@@ -331,6 +352,8 @@ func biller(w http.ResponseWriter, r *http.Request) {
 			fileName = "PaymentStatusReqResponse5.json"
 		case strings.Contains(trigger, "LFIBIDJ1010"):
 			fileName = "PaymentStatusReqResponse.json"
+		case strings.Contains(trigger, "BSSPIDSP010"):
+			fileName = "PaymentStatusReqResponse6.json"
 		}
 
 	// case "001":
@@ -364,8 +387,14 @@ func biller(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 		return
 	}
+	if trxType == "000" {
+		c := string(b)
+		x := "20210301INDOIDJA010ORB9999999999"
+		d := strings.Replace(c, `"OrgnlEndToEndId": "20210301INDOIDJA010ORB12345678"`, `"OrgnlEndToEndId": "`+x+`"`, -1)
+		b = []byte(d)
+	}
 	json.Unmarshal(b, &response)
-	// fmt.Println("response:", response)
+	fmt.Println("response:", string(b))
 
 	responseFormatter(w, response, 200)
 }
